@@ -60,6 +60,6 @@ about the distinction between pre-processing for training and pre-processing for
 us to use the same code to perform either step.
 
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
-that comes with the syberia set of packages.
+that comes with the syberia suite of packages.
 
 **[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](training_versus_prediction.html)**
