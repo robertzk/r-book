@@ -1,14 +1,50 @@
-<table>
-  <tbody>
-    <tr>
-      <td><strong><a href="../index.html">Previous Section</a></strong></td>
-      <td><strong><a href="../index.html">Index</a></strong></td>
-      <td><strong><a href="setting_up_your_development_environment.html">Next Section</a></strong></td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<!-- Huge thanks to: http://stackoverflow.com/a/16389663/2540303 -->
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://robertzk.github.io/r-book/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://robertzk.github.io/r-book/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="http://robertzk.github.io/r-book/stylesheets/print.css" media="print" />
 
-<h1 id="what-is-a-production-level-classifier">What is a production-level classifier?</h1>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+      $(function () {
+          $('a').each(function () {
+              var ext = '.md';
+              var href = $(this).attr('href');
+              var position = href.length - ext.length;
+              if (href.substring(position) === ext)
+                  $(this).attr('href', href.substring(0, position));
+          });
+      });
+    </script>
+
+    <title>R-book by robertzk</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>R-book</h1>
+        <h2>Classifier Development in R</h2>
+        <a href="https://github.com/robertzk/r-book" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+        <p><strong><a href="../index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="setting_up_your_development_environment.html">Next Section</a></strong></p>
+
+<h1>What is a production-level classifier?</h1>
 
 <p>This book is about developing production-ready machine learning systems. </p>
 
@@ -16,18 +52,18 @@
 we mean software that:</p>
 
 <ul>
-  <li>we must be confident is correct</li>
-  <li>is running in real-time on live data</li>
-  <li>can easily be maintained by someone who first comes across the code base</li>
-  <li>needs to have a deployment process, a way to turn code that is in development to code that is live</li>
-  <li>is flexible enough and does not box us in as to allow quick development of new features</li>
-  <li>can scale to large traffic volumes</li>
+<li>we must be confident is correct</li>
+<li>is running in real-time on live data</li>
+<li>can easily be maintained by someone who first comes across the code base</li>
+<li>needs to have a deployment process, a way to turn code that is in development to code that is live</li>
+<li>is flexible enough and does not box us in as to allow quick development of new features</li>
+<li>can scale to large traffic volumes</li>
 </ul>
 
 <p>Even from the very first requirement, we have already departed from the typical book on machine learning
 algorithms. Running your algorithms by hand and observing the results should not satisfy us. The world
 of software developers has learned this lesson painfully and eventually came up with the correct solution:
-testing. By writing <strong>unit tests</strong>–code that tests our code–we can scale our projects to arbitrarily large
+testing. By writing <strong>unit tests</strong>--code that tests our code--we can scale our projects to arbitrarily large
 sizes; if we are ever worried that changing complex functions messes up other dependencies we have
 forgotten about or another developer created, good testing will catch this before it breaks any live system.</p>
 
@@ -38,26 +74,26 @@ choices we make.</p>
 <p>To keep the projects we write maintainable and flexible, we will adopt the same philosophy as that
 of the most successful set of tools ever written: the Unix tool chain. Every important piece of software
 in the world, from internet servers to traffic routing to medical diagnostics to military applications
-runs on software descended from the same toolset–that of the Linux and Unix operating systems.</p>
+runs on software descended from the same toolset--that of the Linux and Unix operating systems.</p>
 
 <p>The main advantage Unix has is that every program written for its core has to do only one job,
-and that job well. The connecting strand is a piping notation that combines the tools’s results:
-<code>grep "some example" some/file.txt | wc -l &gt; number_examples.txt</code> will run the <code>grep</code> program to find
-lines containing <code>"some example"</code> in <code>some/file.txt</code>. It passes its results to <code>wc</code>, which counts the
+and that job well. The connecting strand is a piping notation that combines the tools&#39;s results:
+<code>grep &quot;some example&quot; some/file.txt | wc -l &gt; number_examples.txt</code> will run the <code>grep</code> program to find
+lines containing <code>&quot;some example&quot;</code> in <code>some/file.txt</code>. It passes its results to <code>wc</code>, which counts the
 number of such lines, and <code>&gt;</code> stores this number in <code>number_examples.txt</code>. This is a relatively simple example,
 but it should be kept in mind that almost all the operations one needs to manipulate and run complex programs
 on the Linux operating system can be accomplished with these tools.</p>
 
 <p>Our goal throughout this book is to develop such a set of tools for writing production-ready learning systems.</p>
 
-<h2 id="what-is-a-learning-system">What is a learning system?</h2>
+<h2>What is a learning system?</h2>
 
 <p>Crack open any machine learning textbook and you will find a slew of fancy mathematics written by
 smart statisticians to take some data about the past and predict what it will look like in the future.</p>
 
 <p>Although writing a program that accomplishes such a goal will be the over-arching theme, our focus will
-be on taking these algorithms and making them <em>available to others</em>–the “systems” part of 
-“learning systems.”</p>
+be on taking these algorithms and making them <em>available to others</em>--the &quot;systems&quot; part of 
+&quot;learning systems.&quot;</p>
 
 <p>Another domain that has drawn inspiration from the Unix philosophy is the ecosystem of modern web development.
 When you surf sites on the internet, coordinated requests are constantly being made between a great
@@ -67,12 +103,28 @@ collection of live programs constantly receiving new data, using it to re-train 
 everything in a web-accessible interface that other parts of our infrastructure can use to make predictions
 with our models.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><strong><a href="../index.html">Previous Section</a></strong></td>
-      <td><strong><a href="../index.html">Index</a></strong></td>
-      <td><strong><a href="setting_up_your_development_environment.html">Next Section</a></strong></td>
-    </tr>
-  </tbody>
-</table>
+<p><strong><a href="../index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="setting_up_your_development_environment.html">Next Section</a></strong></p>
+
+
+        </section>
+
+        <aside id="sidebar" style="display:none">
+          <a href="https://github.com/robertzk/r-book/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/robertzk/r-book/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/robertzk/r-book"></a> is maintained by <a href="https://github.com/robertzk">robertzk</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

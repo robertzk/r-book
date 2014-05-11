@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 **[Previous Section](../index.html)** | **[Index](../index.html)** | **[Next Section](setting_up_your_development_environment.html)**
 
 What is a production-level classifier?
