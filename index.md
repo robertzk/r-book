@@ -1,3 +1,7 @@
+---
+layout: index
+---
+
 
 Classifier Development in R
 ======
