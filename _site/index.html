@@ -14,6 +14,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
       $(function () {
           $('a').each(function () {
@@ -21,7 +22,7 @@
               var href = $(this).attr('href');
               var position = href.length - ext.length;
               if (href.substring(position) === ext)
-                  $(this).attr('href', href.substring(0, position));
+                  $(this).attr('href', href.substring(0, position) + '.html');
           });
       });
     </script>
@@ -51,14 +52,15 @@ development in the R programming language. The sections denoted by * are optiona
 <li><p>Introduction</p>
 
 <ul>
-<li><a href="introduction/setting_up_your_development_environment.html">Setting up your development environment</a></li>
-<li><a href="introduction/review_of_R.html">A review of R</a></li>
-<li><a href="introduction/review_quiz.html">Exercises</a></li>
-<li>* <a href="introduction/troubleshooting.html">Troubleshooting</a></li>
+<li><a href="docs/introduction/setting_up_your_development_environment.md">Setting up your development environment</a></li>
+<li><a href="docs/introduction/review_of_R.md">A review of R</a></li>
+<li><a href="docs/introduction/review_quiz.md">Exercises</a></li>
+<li>* <a href="docs/introduction/troubleshooting.md">Troubleshooting</a></li>
 </ul></li>
-<li><p>Data Preparation</p>
+<li><p><a href="docs/data_preparation/index.md">Data Preparation</a></p>
 
 <ul>
+<li><a href="docs/data_preparation/training_versus_prediction.md">Training versus prediction</a></li>
 <li>Some manual exercises</li>
 <li>Filtering out values</li>
 <li>Transformations</li>

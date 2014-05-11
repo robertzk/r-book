@@ -14,6 +14,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript">
       $(function () {
           $('a').each(function () {
@@ -21,7 +22,7 @@
               var href = $(this).attr('href');
               var position = href.length - ext.length;
               if (href.substring(position) === ext)
-                  $(this).attr('href', href.substring(0, position));
+                  $(this).attr('href', href.substring(0, position) + '.html');
           });
       });
     </script>
