@@ -4,13 +4,15 @@ Classifier Development in R
 This book is intended to serve as an introduction to production-level classifier
 development in the R programming language. The sections denoted by \* are optional.
 
-1. Introduction
+* [Introduction](introduction/what_is_a_production_level_classifier.html)
+  - [What is a production-level classifier?](introduction/what_is_a_production_level_classifier.html)
   - [Setting up your development environment](introduction/setting_up_your_development_environment.html)
   - [A review of R](introduction/review_of_R.html)
   - [Exercises](introduction/review_quiz.html)
   - \* [Troubleshooting](introduction/troubleshooting.html)
 
-2. Data Preparation
+* [Data Preparation](data_preparation/index.html)
+  - [Training versus prediction](data_preparation/training_versus_prediction.html)
   - Some manual exercises
     - Filtering out values
   - Transformations
@@ -40,7 +42,7 @@ development in the R programming language. The sections denoted by \* are option
     - \*Inspecting stored mungepieces
     - \*Debugging the data preparation process
 
-3. Modeling
+* Modeling
   - Some manual exercises
     - A linear regression
     - A GBM model
@@ -69,7 +71,7 @@ development in the R programming language. The sections denoted by \* are option
     - Testing your syberia models
     - Re-factoring complicated models with Ramd
 
-4. Deployment
+* Deployment
   - Microserver
     - Launching a microserver on EC2
     - Deploying your syberia model to S3

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Classifier Development in R</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Classifier Development in R</h1>
+
+<p>This book is intended to serve as an introduction to production-level classifier
+development in the R programming language. The sections denoted by * are optional.</p>
+
+<ol>
+<li><p>Introduction</p>
+
+<ul>
+<li><a href="introduction/setting_up_your_development_environment.html">Setting up your development environment</a></li>
+<li><a href="introduction/review_of_R.html">A review of R</a></li>
+<li><a href="introduction/review_quiz.html">Exercises</a></li>
+<li>* <a href="introduction/troubleshooting.html">Troubleshooting</a></li>
+</ul></li>
+<li><p>Data Preparation</p>
+
+<ul>
+<li>Some manual exercises</li>
+<li>Filtering out values</li>
+<li>Transformations</li>
+<li>Column transformations</li>
+<li>Row transformations</li>
+<li>Multi-column transformations</li>
+<li>Dataframe transformations</li>
+<li>Exercises </li>
+<li>Mungebits</li>
+<li>A simple filter</li>
+<li>A simple imputer</li>
+<li>The mungebit data structure</li>
+<li>The imputer mungebit</li>
+<li>More advanced mungebits</li>
+<li>Passing state between training and prediction</li>
+<li>Exercises </li>
+<li>*Writing our own mungebit</li>
+<li>*Testing mungebits</li>
+<li>Mungepieces</li>
+<li>An imputer with memory</li>
+<li>Differences between training and prediction</li>
+<li>Using the <code>parse_mungepiece</code> function to make mungepieces</li>
+<li>Exercises</li>
+<li>Munging</li>
+<li>Putting it all together with <code>munge</code></li>
+<li>Re-munging against a data.frame</li>
+<li>*Inspecting stored mungepieces</li>
+<li>*Debugging the data preparation process</li>
+</ul></li>
+<li><p>Modeling</p>
+
+<ul>
+<li>Some manual exercises</li>
+<li>A linear regression</li>
+<li>A GBM model</li>
+<li>Tundra (turning models into R objects)</li>
+<li>A linear regression tundra model</li>
+<li>A GBM tundra model</li>
+<li>Understanding training parameters</li>
+<li>Using prediction parameters</li>
+<li>The philosophy of tundra</li>
+<li>* Writing our own GLM tundra container</li>
+<li>Stagerunner</li>
+<li>An example of the full modeling process</li>
+<li>Introducing stagerunner: parametrizing our modeling process</li>
+<li>Quick detour: other use cases for stagerunner</li>
+<li>* Advanced features of stagerunner objects</li>
+<li>* Debugging stagerunner objects</li>
+<li>Interactive stagerunners and caching</li>
+<li>An ensemble of stagerunners</li>
+<li>Syberia</li>
+<li>Introduction</li>
+<li>The import stage</li>
+<li>The data stage</li>
+<li>The model stage</li>
+<li>The export stage</li>
+<li>* The evaluation stage</li>
+<li>Testing your syberia models</li>
+<li>Re-factoring complicated models with Ramd</li>
+</ul></li>
+<li><p>Deployment</p>
+
+<ul>
+<li>Microserver</li>
+<li>Launching a microserver on EC2</li>
+<li>Deploying your syberia model to S3</li>
+<li>Validation</li>
+<li>The philosophy of validation</li>
+<li>Testing alpha versus beta operations</li>
+<li>Scaling with nginx</li>
+</ul></li>
+</ol>
+
+</body>
+
+</html>
+
