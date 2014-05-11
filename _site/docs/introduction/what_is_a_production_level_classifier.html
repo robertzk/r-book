@@ -1,3 +1,147 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>What is a production-level classifier?</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
 <p><strong><a href="../index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="setting_up_your_development_environment.html">Next Section</a></strong></p>
 
 <h1>What is a production-level classifier?</h1>
@@ -19,7 +163,7 @@ we mean software that:</p>
 <p>Even from the very first requirement, we have already departed from the typical book on machine learning
 algorithms. Running your algorithms by hand and observing the results should not satisfy us. The world
 of software developers has learned this lesson painfully and eventually came up with the correct solution:
-testing. By writing <strong>unit tests</strong>--code that tests our code--we can scale our projects to arbitrarily large
+testing. By writing <strong>unit tests</strong>&ndash;code that tests our code&ndash;we can scale our projects to arbitrarily large
 sizes; if we are ever worried that changing complex functions messes up other dependencies we have
 forgotten about or another developer created, good testing will catch this before it breaks any live system.</p>
 
@@ -30,7 +174,7 @@ choices we make.</p>
 <p>To keep the projects we write maintainable and flexible, we will adopt the same philosophy as that
 of the most successful set of tools ever written: the Unix tool chain. Every important piece of software
 in the world, from internet servers to traffic routing to medical diagnostics to military applications
-runs on software descended from the same toolset--that of the Linux and Unix operating systems.</p>
+runs on software descended from the same toolset&ndash;that of the Linux and Unix operating systems.</p>
 
 <p>The main advantage Unix has is that every program written for its core has to do only one job,
 and that job well. The connecting strand is a piping notation that combines the tools&#39;s results:
@@ -48,8 +192,8 @@ on the Linux operating system can be accomplished with these tools.</p>
 smart statisticians to take some data about the past and predict what it will look like in the future.</p>
 
 <p>Although writing a program that accomplishes such a goal will be the over-arching theme, our focus will
-be on taking these algorithms and making them <em>available to others</em>--the &quot;systems&quot; part of 
-&quot;learning systems.&quot;</p>
+be on taking these algorithms and making them <em>available to others</em>&ndash;the &ldquo;systems&rdquo; part of 
+&ldquo;learning systems.&rdquo;</p>
 
 <p>Another domain that has drawn inspiration from the Unix philosophy is the ecosystem of modern web development.
 When you surf sites on the internet, coordinated requests are constantly being made between a great
@@ -60,3 +204,8 @@ everything in a web-accessible interface that other parts of our infrastructure 
 with our models.</p>
 
 <p><strong><a href="../index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="setting_up_your_development_environment.html">Next Section</a></strong></p>
+
+</body>
+
+</html>
+
