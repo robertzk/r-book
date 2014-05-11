@@ -4,22 +4,23 @@ Classifier Development in R
 This book is intended to serve as an introduction to production-level classifier
 development in the R programming language. The sections denoted by \* are optional.
 
-1. Introduction
-  - [Setting up your development environment](docs/introduction/setting_up_your_development_environment.md)
-  - [A review of R](docs/introduction/review_of_R.md)
-  - [Exercises](docs/introduction/review_quiz.md)
-  - \* [Troubleshooting](docs/introduction/troubleshooting.md)
+* [Introduction](introduction/what_is_a_production_level_classifier.md)
+  - [What is a production-level classifier?](introduction/what_is_a_production_level_classifier.md)
+  - [Setting up your development environment](introduction/setting_up_your_development_environment.md)
+  - [A review of R](introduction/review_of_R.md)
+  - [Exercises](introduction/review_quiz.md)
+  - \* [Troubleshooting](introduction/troubleshooting.md)
 
-2. [Data Preparation](docs/data_preparation/index.md)
-  - [Training versus prediction](docs/data_preparation/training_versus_prediction.md)
+* [Data Preparation](data_preparation/index.md)
+  - [Training versus prediction](data_preparation/training_versus_prediction.md)
   - Some manual exercises
-    - Filtering out values
-  - Transformations
-    - Column transformations
-    - Row transformations
-    - Multi-column transformations
-    - Dataframe transformations
-    - Exercises 
+     - [Filtering out values](data_preparation/filtering_out_values.md)
+  - [Transformations](data_preparation/transformations.md)
+     - [Column transformations](data_preparation/column_transformations.md)
+     - Row transformations
+     - Multi-column transformations
+     - Dataframe transformations
+     - Exercises 
   - Mungebits
     - A simple filter
     - A simple imputer
@@ -41,7 +42,7 @@ development in the R programming language. The sections denoted by \* are option
     - \*Inspecting stored mungepieces
     - \*Debugging the data preparation process
 
-3. Modeling
+* Modeling
   - Some manual exercises
     - A linear regression
     - A GBM model
@@ -70,7 +71,7 @@ development in the R programming language. The sections denoted by \* are option
     - Testing your syberia models
     - Re-factoring complicated models with Ramd
 
-4. Deployment
+* Deployment
   - Microserver
     - Launching a microserver on EC2
     - Deploying your syberia model to S3
