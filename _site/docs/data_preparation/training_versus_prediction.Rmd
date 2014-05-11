@@ -1,4 +1,4 @@
-**[Previous Section](index.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
 
 Training versus prediction
 =====
@@ -42,4 +42,4 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
-**[Previous Section](index.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
