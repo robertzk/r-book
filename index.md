@@ -4,23 +4,23 @@ Classifier Development in R
 This book is intended to serve as an introduction to production-level classifier
 development in the R programming language. The sections denoted by \* are optional.
 
-* [Introduction](introduction/what_is_a_production_level_classifier.html)
-  - [What is a production-level classifier?](introduction/what_is_a_production_level_classifier.html)
-  - [Setting up your development environment](introduction/setting_up_your_development_environment.html)
-  - [A review of R](introduction/review_of_R.html)
-  - [Exercises](introduction/review_quiz.html)
-  - \* [Troubleshooting](introduction/troubleshooting.html)
+* [Introduction](introduction/what_is_a_production_level_classifier.md)
+  - [What is a production-level classifier?](introduction/what_is_a_production_level_classifier.md)
+  - [Setting up your development environment](introduction/setting_up_your_development_environment.md)
+  - [A review of R](introduction/review_of_R.md)
+  - [Exercises](introduction/review_quiz.md)
+  - \* [Troubleshooting](introduction/troubleshooting.md)
 
-* [Data Preparation](data_preparation/index.html)
-  - [Training versus prediction](data_preparation/training_versus_prediction.html)
+* [Data Preparation](data_preparation/index.md)
+  - [Training versus prediction](data_preparation/training_versus_prediction.md)
   - Some manual exercises
-    - Filtering out values
-  - Transformations
-    - Column transformations
-    - Row transformations
-    - Multi-column transformations
-    - Dataframe transformations
-    - Exercises 
+     - [Filtering out values](data_preparation/filtering_out_values.md)
+  - [Transformations](data_preparation/transformations.md)
+     - [Column transformations](data_preparation/column_transformations.md)
+     - Row transformations
+     - Multi-column transformations
+     - Dataframe transformations
+     - Exercises 
   - Mungebits
     - A simple filter
     - A simple imputer
