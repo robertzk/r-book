@@ -188,52 +188,74 @@ manually play with some operations.</p>
 
 <h2>Filtering out values</h2>
 
-<p>Let&#39;s filter some values.</p>
+<p>Consider the <code>chickwts</code> dataset that comes with base R:</p>
 
-<pre><code class="r">example_data &lt;-
-  data.frame(one = c(rnorm(100, 0, 1), NA),
-             two = c(NA, rnorm(100, 10, 5)))
-# example_data is now a data.frame with two columns, the first 100 values drawn from
-# a normal distribution with mean 0 and standard deviation 1 followed by a missing value,
-# and the latter column a missing value followed by a normal distribution with mean 10
-# and standard deviation 5.
-print(rbind(head(example_data, 2), tail(example_data, 2)))
+<pre><code class="r">attach(chickwts)
+print(rbind(head(chickwts, 2), tail(chickwts, 2)))
 </code></pre>
 
-<pre><code>##         one    two
-## 1   -0.7951     NA
-## 2   -0.4994  9.299
-## 100 -1.5182  6.247
-## 101      NA 14.500
+<pre><code>##    weight      feed
+## 1     179 horsebean
+## 2     160 horsebean
+## 70    283    casein
+## 71    332    casein
 </code></pre>
 
-<pre><code class="r">for (col in seq_along(example_data)) # Now impute each column with its mean
-  example_data[is.na(example_data[[col]]), col] &lt;- mean(example_data[[col]], na.rm = TRUE)
-print(rbind(head(example_data, 2), tail(example_data, 2)))
+<pre><code class="r">print(unique(chickwts$feed))
 </code></pre>
 
-<pre><code>##          one    two
-## 1   -0.79513 10.065
-## 2   -0.49942  9.299
-## 100 -1.51820  6.247
-## 101 -0.08621 14.500
+<pre><code>## [1] horsebean linseed   soybean   sunflower meatmeal  casein   
+## Levels: casein horsebean linseed meatmeal soybean sunflower
 </code></pre>
 
-<p>However, when we are predicting on single data points in real-time, our <code>data.frame</code>s will be
-only one row: imputing will make no sense. We must <em>remember</em> the mean that we 
-used during training. The implication is that future data points are assumed to come
-from the same distribution as the training data points, so their expected value is
-the mean of the distribution, which is best approximated by the mean of our training sample.</p>
+<p>Our job is to condense the information in the second column for an algorithm that does not 
+deal well with too many levels. We would like to turn to turn the <code>horsebean</code> and <code>soybean</code>
+levels into a <code>bean</code> category, the <code>linseed</code> and <code>sunflower</code> into a <code>seed</code> category,
+and the other two into <code>other</code>. We could do this manually:</p>
 
-<p>We have now come to our first fork in the road. We can choose two paths: we can decide that whenever we have to perform some pre-processing operations on portions of a dataset, we resolve to also write any necessary prediction function. We will use the former code for training, and the latter code for prediction, and will keep the two
-in separate places.</p>
+<pre><code class="r">cleanup_feed &lt;- function(feed) {
+  factor(ifelse(feed %in% c(&#39;horsebean&#39;, &#39;soybean&#39;), &#39;bean&#39;,
+         ifelse(feed %in% c(&#39;sunflower&#39;, &#39;linseed&#39;), &#39;seed&#39;, &#39;other&#39;)))
+}
 
-<p>The other option is to force ourselves to develop a convention that will make it impossible to forget
-about the distinction between pre-processing for training and pre-processing for prediction, and allow
-us to use the same code to perform either step.</p>
+clean_chickwts &lt;- chickwts
+clean_chickwts$feed &lt;- cleanup_feed(clean_chickwts$feed)
+print(rbind(head(clean_chickwts, 2), tail(clean_chickwts, 2)))
+</code></pre>
 
-<p>The rest of this chapter is dedicated to one example of such a convention&ndash;the <strong>mungebits</strong> package 
-that comes with the syberia set of packages.</p>
+<pre><code>##    weight  feed
+## 1     179  bean
+## 2     160  bean
+## 70    283 other
+## 71    332 other
+</code></pre>
+
+<pre><code class="r">print(unique(clean_chickwts$feed))
+</code></pre>
+
+<pre><code>## [1] bean  seed  other
+## Levels: bean other seed
+</code></pre>
+
+<p>What happens when we try to apply our preparation function to a single row for prediction?</p>
+
+<pre><code class="r">print(cleanup_feed(chickwts[1, ]$feed))
+</code></pre>
+
+<pre><code>## [1] bean
+## Levels: bean
+</code></pre>
+
+<p>Although the <code>character</code> value is correct, the <code>levels</code> are no longer the same. Therefore, we cannot
+use the same function for prediction and training.</p>
+
+<p>The prediction function must <em>remember</em> the levels that were used during training, just like
+the prediction step for imputation had to remember the mean.</p>
+
+<p>This is one of the problems we face when performing data preparation on a training set
+versus single-row prediction data that is streaming in real-time. In the next section,
+we will learn how transformations, and later mungebits, help us make this process
+more manageable.</p>
 
 <p><strong><a href="training_versus_prediction.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="transformations.html">Next Section</a></strong></p>
 

@@ -14,33 +14,33 @@ development in the R programming language. The sections denoted by \* are option
 * [Data Preparation](data_preparation/index.html)
   - [Training versus prediction](data_preparation/training_versus_prediction.html)
   - Some manual exercises
-    - [Filtering out values](data_preparation/filtering_out_values.html)
+     - [Filtering out values](data_preparation/filtering_out_values.html)
   - [Transformations](data_preparation/transformations.html)
-    - Column transformations
-    - Row transformations
-    - Multi-column transformations
-    - Dataframe transformations
-    - Exercises 
+     - [Column transformations](data_preparation/column_transformations.html)
+     - Row transformations
+     - Multi-column transformations
+     - Dataframe transformations
+     - Exercises 
   - Mungebits
-    - A simple filter
-    - A simple imputer
-    - The mungebit data structure
-    - The imputer mungebit
-    - More advanced mungebits
-    - Passing state between training and prediction
-    - Exercises 
-    - \*Writing our own mungebit
-    - \*Testing mungebits
-  - Mungepieces
-    - An imputer with memory
-    - Differences between training and prediction
-    - Using the `parse_mungepiece` function to make mungepieces
-    - Exercises
-  - Munging
-    - Putting it all together with `munge`
-    - Re-munging against a data.frame
-    - \*Inspecting stored mungepieces
-    - \*Debugging the data preparation process
+     - A simple filter
+     - A simple imputer
+     - The mungebit data structure
+     - The imputer mungebit
+     - More advanced mungebits
+     - Passing state between training and prediction
+     - Exercises 
+     - \*Writing our own mungebit
+     - \*Testing mungebits
+   - Mungepieces
+     - An imputer with memory
+     - Differences between training and prediction
+     - Using the `parse_mungepiece` function to make mungepieces
+     - Exercises
+   - Munging
+     - Putting it all together with `munge`
+     - Re-munging against a data.frame
+     - \*Inspecting stored mungepieces
+     - \*Debugging the data preparation process
 
 * Modeling
   - Some manual exercises

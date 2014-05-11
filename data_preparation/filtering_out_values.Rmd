@@ -9,39 +9,46 @@ manually play with some operations.
 Filtering out values
 -------
 
-Let's try to filter some values from a dataset.
+Consider the `chickwts` dataset that comes with base R:
 
 ```{r, tidy = FALSE}
-example_data <-
-  data.frame(one = c(rnorm(100, 0, 1), NA),
-             two = c(NA, rnorm(100, 10, 5)))
-# example_data is now a data.frame with two columns, the first 100 values drawn from
-# a normal distribution with mean 0 and standard deviation 1 followed by a missing value,
-# and the latter column a missing value followed by a normal distribution with mean 10
-# and standard deviation 5.
-print(rbind(head(example_data, 2), tail(example_data, 2)))
+attach(chickwts)
+print(rbind(head(chickwts, 2), tail(chickwts, 2)))
+print(unique(chickwts$feed))
 ```
+
+Our job is to condense the information in the second column for an algorithm that does not 
+deal well with too many levels. We would like to turn to turn the `horsebean` and `soybean`
+levels into a `bean` category, the `linseed` and `sunflower` into a `seed` category,
+and the other two into `other`. We could do this manually:
 
 ```{r, tidy = FALSE}
-for (col in seq_along(example_data)) # Now impute each column with its mean
-  example_data[is.na(example_data[[col]]), col] <- mean(example_data[[col]], na.rm = TRUE)
-print(rbind(head(example_data, 2), tail(example_data, 2)))
+cleanup_feed <- function(feed) {
+  factor(ifelse(feed %in% c('horsebean', 'soybean'), 'bean',
+         ifelse(feed %in% c('sunflower', 'linseed'), 'seed', 'other')))
+}
+
+clean_chickwts <- chickwts
+clean_chickwts$feed <- cleanup_feed(clean_chickwts$feed)
+print(rbind(head(clean_chickwts, 2), tail(clean_chickwts, 2)))
+print(unique(clean_chickwts$feed))
 ```
 
-However, when we are predicting on single data points in real-time, our `data.frame`s will be
-only one row: imputing will make no sense. We must *remember* the mean that we 
-used during training. The implication is that future data points are assumed to come
-from the same distribution as the training data points, so their expected value is
-the mean of the distribution, which is best approximated by the mean of our training sample.
+What happens when we try to apply our preparation function to a single row for prediction?
 
-We have now come to our first fork in the road. We can choose two paths: we can decide that whenever we have to perform some pre-processing operations on portions of a dataset, we resolve to also write any necessary prediction function. We will use the former code for training, and the latter code for prediction, and will keep the two
-in separate places.
+```{r, tidy = FALSE}
+print(cleanup_feed(chickwts[1, ]$feed))
+```
 
-The other option is to force ourselves to develop a convention that will make it impossible to forget
-about the distinction between pre-processing for training and pre-processing for prediction, and allow
-us to use the same code to perform either step.
+Although the `character` value is correct, the `levels` are no longer the same. Therefore, we cannot
+use the same function for prediction and training.
 
-The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
-that comes with the syberia set of packages.
+The prediction function must *remember* the levels that were used during training, just like
+the prediction step for imputation had to remember the mean.
+
+This is one of the problems we face when performing data preparation on a training set
+versus single-row prediction data that is streaming in real-time. In the next section,
+we will learn how transformations, and later mungebits, help us make this process
+more manageable.
 
 **[Previous Section](training_versus_prediction.html)** | **[Index](../index.html)** | **[Next Section](transformations.html)**
