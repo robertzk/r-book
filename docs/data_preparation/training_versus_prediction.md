@@ -3,7 +3,7 @@ layout: page
 ---
 
 
-**[Previous Section](index.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
 
 Training versus prediction
 =====
@@ -27,11 +27,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-##        one   two
-## 1   1.6920    NA
-## 2   0.2968 11.74
-## 100 0.3681 11.40
-## 101     NA 11.03
+##         one    two
+## 1    0.7788     NA
+## 2   -0.6399 12.023
+## 100 -0.8969  6.122
+## 101      NA 10.336
 ```
 
 
@@ -43,11 +43,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-##        one   two
-## 1   1.6920 10.20
-## 2   0.2968 11.74
-## 100 0.3681 11.40
-## 101 0.1147 11.03
+##         one    two
+## 1    0.7788  9.165
+## 2   -0.6399 12.023
+## 100 -0.8969  6.122
+## 101 -0.1462 10.336
 ```
 
 
@@ -67,4 +67,4 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
-**[Previous Section](index.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**

@@ -3,7 +3,7 @@ layout: page
 ---
 
 
-**[Previous Section](../introduction/troubleshooting.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](../introduction/troubleshooting.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
 
 Data Preparation
 =====
@@ -46,4 +46,4 @@ files, all in a few key strokes.
 The goal of the tools presented in the rest of this chapter are to replicate these powers for data preparation.
 We want to be able to re-map multiple columns, impute whole datasets and filter out unnecessary rows--all in single lines of code. However, we have a terrible restriction that has defeated many data scientists.
 
-**[Previous Section](../introduction/troubleshooting.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](../introduction/troubleshooting.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
