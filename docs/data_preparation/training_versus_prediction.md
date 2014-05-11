@@ -22,11 +22,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-##          one    two
-## 1   -1.28710     NA
-## 2   -0.24981  2.724
-## 100  0.01865 18.539
-## 101       NA 15.299
+##         one    two
+## 1   -0.2338     NA
+## 2    0.7159  6.258
+## 100  1.1945  8.711
+## 101      NA 13.800
 ```
 
 
@@ -38,11 +38,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-##          one    two
-## 1   -1.28710 10.203
-## 2   -0.24981  2.724
-## 100  0.01865 18.539
-## 101 -0.05224 15.299
+##         one    two
+## 1   -0.2338 10.237
+## 2    0.7159  6.258
+## 100  1.1945  8.711
+## 101 -0.0341 13.800
 ```
 
 
@@ -60,6 +60,6 @@ about the distinction between pre-processing for training and pre-processing for
 us to use the same code to perform either step.
 
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
-that comes with the syberia suite of packages.
+that comes with the syberia set of packages.
 
 **[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
