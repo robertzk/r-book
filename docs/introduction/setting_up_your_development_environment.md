@@ -3,7 +3,7 @@ layout: page
 ---
 
 
-**[Previous Section](../index.html)** | **[Index](../index.html)** | **[Next Section](review_of_R.html)**
+**[Previous Section](what_is_a_production_level_classifier.md)** | **[Index](../../README.md)** | **[Next Section](review_of_R.md)**
 
 Setting up your development environment
 =====
@@ -37,4 +37,4 @@ having problems installing dependencies, see the Troubleshooting section.
 
 You can verify that syberia is working by typing `syberia_version()`. 
 
-**[Previous Section](../index.html)** | **[Index](../index.html)** | **[Next Section](review_of_R.html)**
+**[Previous Section](what_is_a_production_level_classifier.md)** | **[Index](../../README.md)** | **[Next Section](review_of_R.md)**

@@ -3,7 +3,7 @@ layout: page
 ---
 
 
-**[Previous Section](../index.html)** | **[Index](../index.html)** | **[Next Section](setting_up_your_development_environment.html)**
+**[Previous Section](../../README.md)** | **[Index](../../README.md)** | **[Next Section](setting_up_your_development_environment.md)**
 
 What is a production-level classifier?
 ========================================================
@@ -64,4 +64,4 @@ collection of live programs constantly receiving new data, using it to re-train 
 everything in a web-accessible interface that other parts of our infrastructure can use to make predictions
 with our models.
 
-**[Previous Section](../index.html)** | **[Index](../index.html)** | **[Next Section](setting_up_your_development_environment.html)**
+**[Previous Section](../../README.md)** | **[Index](../../README.md)** | **[Next Section](setting_up_your_development_environment.md)**

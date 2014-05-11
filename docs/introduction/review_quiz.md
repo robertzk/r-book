@@ -3,7 +3,7 @@ layout: page
 ---
 
 
-**[Previous Section](review_of_R.html)** | **[Index](../index.html)** | **[Next Section](troubleshooting.html)**
+**[Previous Section](review_of_R.md)** | **[Index](../../README.md)** | **[Next Section](troubleshooting.md)**
 
 R review quiz
 ======
@@ -19,4 +19,4 @@ Answers
 
 **TODO**: Write R answers
 
-**[Previous Section](review_of_R.html)** | **[Index](../index.html)** | **[Next Section](troubleshooting.html)**
+**[Previous Section](review_of_R.md)** | **[Index](../../README.md)** | **[Next Section](troubleshooting.md)**
