@@ -9,19 +9,19 @@ Classifier Development in R
 This book is intended to serve as an introduction to production-level classifier
 development in the R programming language. The sections denoted by \* are optional.
 
-* [Introduction](introduction/what_is_a_production_level_classifier.md)
-  - [What is a production-level classifier?](introduction/what_is_a_production_level_classifier.md)
-  - [Setting up your development environment](introduction/setting_up_your_development_environment.md)
-  - [A review of R](introduction/review_of_R.md)
-  - [Exercises](introduction/review_quiz.md)
-  - \* [Troubleshooting](introduction/troubleshooting.md)
+* [Introduction](docs/introduction/what_is_a_production_level_classifier.md)
+  - [What is a production-level classifier?](docs/introduction/what_is_a_production_level_classifier.md)
+  - [Setting up your development environment](docs/introduction/setting_up_your_development_environment.md)
+  - [A review of R](docs/introduction/review_of_R.md)
+  - [Exercises](docs/introduction/review_quiz.md)
+  - \* [Troubleshooting](docs/introduction/troubleshooting.md)
 
-* [Data Preparation](data_preparation/index.md)
-  - [Training versus prediction](data_preparation/training_versus_prediction.md)
+* [Data Preparation](docs/data_preparation/index.md)
+  - [Training versus prediction](docs/data_preparation/training_versus_prediction.md)
   - Some manual exercises
-     - [Filtering out values](data_preparation/filtering_out_values.md)
-  - [Transformations](data_preparation/transformations.md)
-     - [Column transformations](data_preparation/column_transformations.md)
+     - [Filtering out values](docs/data_preparation/filtering_out_values.md)
+  - [Transformations](docs/data_preparation/transformations.md)
+     - [Column transformations](docs/data_preparation/column_transformations.md)
      - Row transformations
      - Multi-column transformations
      - Dataframe transformations
@@ -51,7 +51,7 @@ development in the R programming language. The sections denoted by \* are option
   - Some manual exercises
     - A linear regression
     - A GBM model
-  - Tundra (turning models into R objects)
+  - Tundra (docs/turning models into R objects)
     - A linear regression tundra model
     - A GBM tundra model
     - Understanding training parameters
