@@ -42,7 +42,31 @@
       <div class="inner clearfix">
         <section id="main-content">
 
-        
+        <p><strong><a href="../index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="review_of_R.html">Next Section</a></strong></p>
+
+<h1>Setting up your development environment</h1>
+
+<p>To begin, ensure that your R version is installed and up to date. You can download
+the latest from CRAN&#39;s website: http://cran.org.</p>
+
+<p>Once you have installed the latest version of R, you need to obtain the current collection of
+syberia packages. Begin with</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">install.packages<span class="p">(</span><span class="s">&quot;devtools&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>to install the <code>devtools</code> package, a collection of utilities written by <a href="http://github.com/hadley">Hadley</a>
+that aim to help R programmers with package development.</p>
+
+<p>Installing syberia and its dependencies can be accomplished with</p>
+<div class="highlight"><pre><code class="r language-r" data-lang="r">install_github<span class="p">(</span><span class="s">&quot;syberia&quot;</span><span class="p">,</span> <span class="s">&quot;robertzk&quot;</span><span class="p">)</span>
+library<span class="p">(</span>syberia<span class="p">)</span>
+</code></pre></div>
+<p>On loading the package, it will fetch all of its external Github dependencies. If you are
+having problems installing dependencies, see the Troubleshooting section.</p>
+
+<p>You can verify that syberia is working by typing <code>syberia_version()</code>. </p>
+
+<p><strong><a href="../index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="review_of_R.html">Next Section</a></strong></p>
+
 
         </section>
 

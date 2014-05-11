@@ -2,7 +2,6 @@
 layout: page
 ---
 
-
 **[Previous Section](../index.html)** | **[Index](../index.html)** | **[Next Section](review_of_R.html)**
 
 Setting up your development environment
