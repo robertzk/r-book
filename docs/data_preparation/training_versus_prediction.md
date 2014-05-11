@@ -1,4 +1,4 @@
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](training_versus_prediction.html)**
+**[Previous Section](index.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
 
 Training versus prediction
 =====
@@ -23,10 +23,10 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 
 ```
 ##         one    two
-## 1   -0.5622     NA
-## 2   -0.4801  7.702
-## 100  0.2023 16.692
-## 101      NA  9.899
+## 1   -1.2809     NA
+## 2   -0.9106  1.773
+## 100 -0.1918  9.704
+## 101      NA 11.343
 ```
 
 
@@ -38,11 +38,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-##         one    two
-## 1   -0.5622 10.094
-## 2   -0.4801  7.702
-## 100  0.2023 16.692
-## 101 -0.2242  9.899
+##          one    two
+## 1   -1.28091  8.564
+## 2   -0.91061  1.773
+## 100 -0.19175  9.704
+## 101 -0.09099 11.343
 ```
 
 
@@ -60,6 +60,6 @@ about the distinction between pre-processing for training and pre-processing for
 us to use the same code to perform either step.
 
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
-that comes with the syberia collection of packages.
+that comes with the syberia set of packages.
 
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](training_versus_prediction.html)**
+**[Previous Section](index.md)** | **[Index](../../index.md)** | **[Next Section](training_versus_prediction.md)**
