@@ -1,3 +1,8 @@
+---
+layout: page
+---
+
+
 **[Previous Section](setting_up_your_development_environment.html)** | **[Index](../index.html)** | **[Next Section](review_quiz.html)**
 
 A review of R

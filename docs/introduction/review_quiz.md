@@ -1,3 +1,8 @@
+---
+layout: page
+---
+
+
 **[Previous Section](review_of_R.html)** | **[Index](../index.html)** | **[Next Section](troubleshooting.html)**
 
 R review quiz

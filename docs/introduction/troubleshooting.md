@@ -1,3 +1,8 @@
+---
+layout: page
+---
+
+
 **[Previous Section](review_quiz.html)** | **[Index](../index.html)** | **[Next Section](../data_preparation/index.html)**
 
 Troubleshooting

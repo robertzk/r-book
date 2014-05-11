@@ -1,3 +1,8 @@
+---
+layout: page
+---
+
+
 **[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](training_versus_prediction.html)**
 
 Training versus prediction
