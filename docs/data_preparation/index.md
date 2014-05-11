@@ -39,6 +39,7 @@ and pasting the results in another file, writing macros that extract regular exp
 files, all in a few key strokes.
 
 The goal of the tools presented in the rest of this chapter are to replicate these powers for data preparation.
-We want to be able to re-map multiple columns, impute whole datasets and filter out unnecessary rows--all in single lines of code. However, we have a terrible restriction that has defeated many data scientists.
+We want to be able to re-map multiple columns, impute whole datasets and filter out unnecessary rows--all in single lines of code.
+However, we have a terrible restriction that has defeated many data scientists.
 
 **[Previous Section](../introduction/troubleshooting.html)** | **[Index](../index.html)** | **[Next Section](training_versus_prediction.html)**
