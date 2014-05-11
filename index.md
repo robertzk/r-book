@@ -14,8 +14,8 @@ development in the R programming language. The sections denoted by \* are option
 * [Data Preparation](data_preparation/index.html)
   - [Training versus prediction](data_preparation/training_versus_prediction.html)
   - Some manual exercises
-    - Filtering out values
-  - Transformations
+    - [Filtering out values](data_preparation/filtering_out_values.html)
+  - [Transformations](data_preparation/transformations.html)
     - Column transformations
     - Row transformations
     - Multi-column transformations

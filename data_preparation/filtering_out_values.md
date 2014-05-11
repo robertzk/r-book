@@ -1,13 +1,15 @@
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
+**[Previous Section](training_versus_prediction.html)** | **[Index](../index.html)** | **[Next Section](transformations.html)**
 
-Training versus prediction
-=====
+Some manual exercises
+======
 
-The difference between preparing data for a one-time statistics project and for real-time usage
-has one important pitfall: our code may not always look the same for training as for prediction.
+Before diving into the *mungebits* package and its use for data preparation, let us try to
+manually play with some operations.
 
-For example, consider mean imputation--taking a variable, i.e., a column of data in a `data.frame`, and
-replacing missing values with the mean.
+Filtering out values
+-------
+
+Let's filter some values.
 
 
 ```r
@@ -22,11 +24,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-##          one    two
-## 1    0.05558     NA
-## 2    0.31941  5.591
-## 100 -0.69005  7.179
-## 101       NA 15.374
+##         one    two
+## 1   -0.7951     NA
+## 2   -0.4994  9.299
+## 100 -1.5182  6.247
+## 101      NA 14.500
 ```
 
 
@@ -39,10 +41,10 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 
 ```
 ##          one    two
-## 1    0.05558  9.529
-## 2    0.31941  5.591
-## 100 -0.69005  7.179
-## 101 -0.11485 15.374
+## 1   -0.79513 10.065
+## 2   -0.49942  9.299
+## 100 -1.51820  6.247
+## 101 -0.08621 14.500
 ```
 
 
@@ -51,21 +53,6 @@ only one row: imputing will make no sense. We must *remember* the mean that we
 used during training. The implication is that future data points are assumed to come
 from the same distribution as the training data points, so their expected value is
 the mean of the distribution, which is best approximated by the mean of our training sample.
-
-
-```r
-prediction_row <- data.frame(one = NA, two = rnorm(1, 10, 5))
-# Impute the missing value using the mean from example_data
-for (col in seq_along(prediction_row)) 
-  prediction_row[is.na(prediction_row[[col]]), col] <- mean(example_data[[col]], na.rm = TRUE)
-print(prediction_row)
-```
-
-```
-##       one   two
-## 1 -0.1149 15.85
-```
-
 
 We have now come to our first fork in the road. We can choose two paths: we can decide that whenever we have to perform some pre-processing operations on portions of a dataset, we resolve to also write any necessary prediction function. We will use the former code for training, and the latter code for prediction, and will keep the two
 in separate places.
@@ -77,4 +64,4 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
+**[Previous Section](training_versus_prediction.html)** | **[Index](../index.html)** | **[Next Section](transformations.html)**

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=9" >
 
-<title>Training versus prediction</title>
+<title>Some manual exercises</title>
 
 <style type="text/css">
 body, td {
@@ -179,15 +179,16 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<p><strong><a href="index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="filtering_out_values.html">Next Section</a></strong></p>
+<p><strong><a href="training_versus_prediction.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="transformations.html">Next Section</a></strong></p>
 
-<h1>Training versus prediction</h1>
+<h1>Some manual exercises</h1>
 
-<p>The difference between preparing data for a one-time statistics project and for real-time usage
-has one important pitfall: our code may not always look the same for training as for prediction.</p>
+<p>Before diving into the <em>mungebits</em> package and its use for data preparation, let us try to
+manually play with some operations.</p>
 
-<p>For example, consider mean imputation&ndash;taking a variable, i.e., a column of data in a <code>data.frame</code>, and
-replacing missing values with the mean.</p>
+<h2>Filtering out values</h2>
+
+<p>Let&#39;s filter some values.</p>
 
 <pre><code class="r">example_data &lt;-
   data.frame(one = c(rnorm(100, 0, 1), NA),
@@ -199,11 +200,11 @@ replacing missing values with the mean.</p>
 print(rbind(head(example_data, 2), tail(example_data, 2)))
 </code></pre>
 
-<pre><code>##          one    two
-## 1    0.05558     NA
-## 2    0.31941  5.591
-## 100 -0.69005  7.179
-## 101       NA 15.374
+<pre><code>##         one    two
+## 1   -0.7951     NA
+## 2   -0.4994  9.299
+## 100 -1.5182  6.247
+## 101      NA 14.500
 </code></pre>
 
 <pre><code class="r">for (col in seq_along(example_data)) # Now impute each column with its mean
@@ -212,10 +213,10 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 </code></pre>
 
 <pre><code>##          one    two
-## 1    0.05558  9.529
-## 2    0.31941  5.591
-## 100 -0.69005  7.179
-## 101 -0.11485 15.374
+## 1   -0.79513 10.065
+## 2   -0.49942  9.299
+## 100 -1.51820  6.247
+## 101 -0.08621 14.500
 </code></pre>
 
 <p>However, when we are predicting on single data points in real-time, our <code>data.frame</code>s will be
@@ -223,17 +224,6 @@ only one row: imputing will make no sense. We must <em>remember</em> the mean th
 used during training. The implication is that future data points are assumed to come
 from the same distribution as the training data points, so their expected value is
 the mean of the distribution, which is best approximated by the mean of our training sample.</p>
-
-<pre><code class="r">prediction_row &lt;- data.frame(one = NA, two = rnorm(1, 10, 5))
-# Impute the missing value using the mean from example_data
-for (col in seq_along(prediction_row)) 
-  prediction_row[is.na(prediction_row[[col]]), col] &lt;- mean(example_data[[col]], na.rm = TRUE)
-print(prediction_row)
-</code></pre>
-
-<pre><code>##       one   two
-## 1 -0.1149 15.85
-</code></pre>
 
 <p>We have now come to our first fork in the road. We can choose two paths: we can decide that whenever we have to perform some pre-processing operations on portions of a dataset, we resolve to also write any necessary prediction function. We will use the former code for training, and the latter code for prediction, and will keep the two
 in separate places.</p>
@@ -245,7 +235,7 @@ us to use the same code to perform either step.</p>
 <p>The rest of this chapter is dedicated to one example of such a convention&ndash;the <strong>mungebits</strong> package 
 that comes with the syberia set of packages.</p>
 
-<p><strong><a href="index.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="filtering_out_values.html">Next Section</a></strong></p>
+<p><strong><a href="training_versus_prediction.html">Previous Section</a></strong> | <strong><a href="../index.html">Index</a></strong> | <strong><a href="transformations.html">Next Section</a></strong></p>
 
 </body>
 
