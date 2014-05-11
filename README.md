@@ -5,12 +5,13 @@ This book is intended to serve as an introduction to production-level classifier
 development in the R programming language. The sections denoted by \* are optional.
 
 1. Introduction
-  - [Setting up your development environment](introduction/setting_up_your_development_environment.html)
-  - [A review of R](introduction/review_of_R.html)
-  - [Exercises](introduction/review_quiz.html)
-  - \* [Troubleshooting](introduction/troubleshooting.html)
+  - [Setting up your development environment](docs/introduction/setting_up_your_development_environment.md)
+  - [A review of R](docs/introduction/review_of_R.md)
+  - [Exercises](docs/introduction/review_quiz.md)
+  - \* [Troubleshooting](docs/introduction/troubleshooting.md)
 
-2. Data Preparation
+2. [Data Preparation](docs/data_preparation/index.md)
+  - [Training versus prediction](docs/data_preparation/training_versus_prediction.md)
   - Some manual exercises
     - Filtering out values
   - Transformations
