@@ -1,4 +1,4 @@
-**[Previous Section](training_versus_prediction.html)** | **[Index](../index.html)** | **[Next Section](transformations.html)**
+**[Previous Section](training_versus_prediction.md)** | **[Index](../../README.md)** | **[Next Section](transformations.md)**
 
 Some manual exercises
 ======
@@ -94,4 +94,4 @@ versus single-row prediction data that is streaming in real-time. In the next se
 we will learn how transformations, and later mungebits, help us make this process
 more manageable.
 
-**[Previous Section](training_versus_prediction.html)** | **[Index](../index.html)** | **[Next Section](transformations.html)**
+**[Previous Section](training_versus_prediction.md)** | **[Index](../../README.md)** | **[Next Section](transformations.md)**

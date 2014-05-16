@@ -1,8 +1,7 @@
-<<<<<<< HEAD:data_preparation/training_versus_prediction.md
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
-=======
-**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
->>>>>>> master:docs/data_preparation/training_versus_prediction.md
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](filtering_out_values.md)**
+
+
+
 
 Training versus prediction
 =====
@@ -26,19 +25,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-<<<<<<< HEAD:data_preparation/training_versus_prediction.md
-##          one    two
-## 1    0.05558     NA
-## 2    0.31941  5.591
-## 100 -0.69005  7.179
-## 101       NA 15.374
-=======
 ##         one    two
-## 1   -0.2338     NA
-## 2    0.7159  6.258
-## 100  1.1945  8.711
-## 101      NA 13.800
->>>>>>> master:docs/data_preparation/training_versus_prediction.md
+## 1    0.1925     NA
+## 2   -1.4467 11.050
+## 100  0.9120  5.284
+## 101      NA 24.645
 ```
 
 
@@ -50,19 +41,11 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
 ```
-<<<<<<< HEAD:data_preparation/training_versus_prediction.md
-##          one    two
-## 1    0.05558  9.529
-## 2    0.31941  5.591
-## 100 -0.69005  7.179
-## 101 -0.11485 15.374
-=======
 ##         one    two
-## 1   -0.2338 10.237
-## 2    0.7159  6.258
-## 100  1.1945  8.711
-## 101 -0.0341 13.800
->>>>>>> master:docs/data_preparation/training_versus_prediction.md
+## 1    0.1925 10.205
+## 2   -1.4467 11.050
+## 100  0.9120  5.284
+## 101  0.2371 24.645
 ```
 
 
@@ -82,8 +65,8 @@ print(prediction_row)
 ```
 
 ```
-##       one   two
-## 1 -0.1149 15.85
+##      one   two
+## 1 0.2371 15.81
 ```
 
 
@@ -97,8 +80,4 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
-<<<<<<< HEAD:data_preparation/training_versus_prediction.md
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
-=======
-**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
->>>>>>> master:docs/data_preparation/training_versus_prediction.md
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](filtering_out_values.md)**
