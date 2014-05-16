@@ -1,4 +1,4 @@
-**[Previous Section](setting_up_your_development_environment.html)** | **[Index](../index.html)** | **[Next Section](review_quiz.html)**
+**[Previous Section](setting_up_your_development_environment.md)** | **[Index](../../README.md)** | **[Next Section](review_quiz.md)**
 
 A review of R
 ======
@@ -18,6 +18,6 @@ All of these topics and more are covered extensively in Hadley's
 and take the quiz in the following section to test your understanding. After you understand the answers to the quiz,
 we can begin with the basics of processing data sets: the details of data preparation.
 
-**[Previous Section](setting_up_your_development_environment.html)** | **[Index](../index.html)** | **[Next Section](review_quiz.html)**
+**[Previous Section](setting_up_your_development_environment.md)** | **[Index](../../README.md)** | **[Next Section](review_quiz.md)**
 
 

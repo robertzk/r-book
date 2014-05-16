@@ -1,4 +1,8 @@
+<<<<<<< HEAD:data_preparation/training_versus_prediction.md
 **[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
+=======
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
+>>>>>>> master:docs/data_preparation/training_versus_prediction.md
 
 Training versus prediction
 =====
@@ -9,7 +13,8 @@ has one important pitfall: our code may not always look the same for training as
 For example, consider mean imputation--taking a variable, i.e., a column of data in a `data.frame`, and
 replacing missing values with the mean.
 
-```{r, tidy = FALSE}
+
+```r
 example_data <-
   data.frame(one = c(rnorm(100, 0, 1), NA),
              two = c(NA, rnorm(100, 10, 5)))
@@ -20,11 +25,46 @@ example_data <-
 print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
 
-```{r, tidy = FALSE, cache}
+```
+<<<<<<< HEAD:data_preparation/training_versus_prediction.md
+##          one    two
+## 1    0.05558     NA
+## 2    0.31941  5.591
+## 100 -0.69005  7.179
+## 101       NA 15.374
+=======
+##         one    two
+## 1   -0.2338     NA
+## 2    0.7159  6.258
+## 100  1.1945  8.711
+## 101      NA 13.800
+>>>>>>> master:docs/data_preparation/training_versus_prediction.md
+```
+
+
+
+```r
 for (col in seq_along(example_data)) # Now impute each column with its mean
   example_data[is.na(example_data[[col]]), col] <- mean(example_data[[col]], na.rm = TRUE)
 print(rbind(head(example_data, 2), tail(example_data, 2)))
 ```
+
+```
+<<<<<<< HEAD:data_preparation/training_versus_prediction.md
+##          one    two
+## 1    0.05558  9.529
+## 2    0.31941  5.591
+## 100 -0.69005  7.179
+## 101 -0.11485 15.374
+=======
+##         one    two
+## 1   -0.2338 10.237
+## 2    0.7159  6.258
+## 100  1.1945  8.711
+## 101 -0.0341 13.800
+>>>>>>> master:docs/data_preparation/training_versus_prediction.md
+```
+
 
 However, when we are predicting on single data points in real-time, our `data.frame`s will be
 only one row: imputing will make no sense. We must *remember* the mean that we 
@@ -32,13 +72,20 @@ used during training. The implication is that future data points are assumed to 
 from the same distribution as the training data points, so their expected value is
 the mean of the distribution, which is best approximated by the mean of our training sample.
 
-```{r, tidy = FALSE}
+
+```r
 prediction_row <- data.frame(one = NA, two = rnorm(1, 10, 5))
 # Impute the missing value using the mean from example_data
 for (col in seq_along(prediction_row)) 
   prediction_row[is.na(prediction_row[[col]]), col] <- mean(example_data[[col]], na.rm = TRUE)
 print(prediction_row)
 ```
+
+```
+##       one   two
+## 1 -0.1149 15.85
+```
+
 
 We have now come to our first fork in the road. We can choose two paths: we can decide that whenever we have to perform some pre-processing operations on portions of a dataset, we resolve to also write any necessary prediction function. We will use the former code for training, and the latter code for prediction, and will keep the two
 in separate places.
@@ -50,4 +97,8 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
+<<<<<<< HEAD:data_preparation/training_versus_prediction.md
 **[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
+=======
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
+>>>>>>> master:docs/data_preparation/training_versus_prediction.md
