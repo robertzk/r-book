@@ -1,8 +1,8 @@
-<<<<<<< HEAD:data_preparation/training_versus_prediction.Rmd
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
-=======
-**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
->>>>>>> master:docs/data_preparation/training_versus_prediction.Rmd
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](filtering_out_values.md)**
+
+```{r, echo = FALSE, message = FALSE}
+set.seed(1337)
+```
 
 Training versus prediction
 =====
@@ -54,8 +54,4 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
-<<<<<<< HEAD:data_preparation/training_versus_prediction.Rmd
-**[Previous Section](index.html)** | **[Index](../index.html)** | **[Next Section](filtering_out_values.html)**
-=======
-**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
->>>>>>> master:docs/data_preparation/training_versus_prediction.Rmd
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](filtering_out_values.md)**
