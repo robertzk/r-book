@@ -2,6 +2,7 @@
 
 ```{r, echo = FALSE, message = FALSE}
 set.seed(1337)
+library(mungebitsTransformations)
 ```
 
 Transformations
@@ -65,13 +66,5 @@ microbenchmark(using_environments(env), using_nonstandard_evaluation(data))
 
 As we can see, the execution times are comparable, and the method we choose
 will depend on whether we would like easier use on the calling side or on the processing side.
-
-Column transformations
---------
-
-
-
-
-**TODO**: What is a transformation?
 
 **[Previous Section](filtering_out_values.md)** | **[Index](../../README.md)** | **[Next Section](column_transformations.md)**
