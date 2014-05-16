@@ -9,7 +9,7 @@ Column transformations
 
 The package mungebitsTransformations, included with the syberia set of packages, comes
 with a helper function `column_transformation` that uses the non-standard evaluation
-approach defined above.
+approach defined in the previous section.
 
 
 ```r
