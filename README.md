@@ -21,9 +21,9 @@ development in the R programming language. The sections denoted by \* are option
      - Multi-column transformations
      - Dataframe transformations
      - Exercises 
-  - Mungebits
-    - A simple filter
-    - A simple imputer
+  - [Mungebits](docs/data_preparation/mungebits.md)
+    - [A simple filter](docs/data_preparation/simple_filter.md)
+    - [A simple imputer](docs/data_preparation/simple_imputer.md)
     - The mungebit data structure
     - The imputer mungebit
     - More advanced mungebits
