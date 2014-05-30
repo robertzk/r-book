@@ -1,0 +1,70 @@
+**[Previous Section](filtering_out_values.md)** | **[Index](../../README.md)** | **[Next Section](column_transformations.md)**
+
+```{r, echo = FALSE, message = FALSE}
+set.seed(1337)
+library(mungebitsTransformations)
+```
+
+Transformations
+======
+
+Before we examine the need to address differences in data preparation for training versus
+prediction, we will try to understand how to use `lapply` on a `data.frame` without performance
+overhead.
+
+By default, R implements a copy-on-write mechanism. Any changes inside of a function body
+to one of its input arguments creates a full duplicate of the value.
+
+```r
+drop_some_columns <- function(dataframe) { dataframe[, some_cols] <- NULL; dataframe }
+convert_cols_to_numeric <- function(dataframe) {
+  dataframe[, other_cols] <- as.numeric(dataframe[, other_cols]); dataframe }
+discretize_cols <- function(dataframe) {
+  dataframe[, disc_cols] <- discretizer_function(dataframe[, disc_cols]) }
+dataframe <- discretize_cols(convert_cols_to_numeric(drop_some_columns(dataframe)))
+```
+
+This means the above code will suffer from a severe performance deficit: every call to a
+function that makes a slight modification to the `data.frame` will result in a full copy of
+the input `data.frame`, resulting in three full copies in the above code. Ideally, zero
+copies should have to be made. There are two immediate solutions to this problem.
+
+  1. Pass environments to the functions, which will mimic C++'s pointers.
+  
+  2. Use non-standard evaluation to modify the calling environment directly
+     and by-pass the copy on value mechanism.
+     
+While neither solution is ideal, the latter will balance the complexity towards
+the modifying functions rather than the calling mechanism; in the former scenario, the user
+will have to remember to wrap their `data.frame`s with environments before calling
+any modification function. Below we examine what the two methods would look like for
+doubling the first column in a `data.frame`.
+
+```{r}
+using_environments <- function(env) env$data[[1]] <- 2 * env$data[[1]]
+env <- new.env(); env$data <- iris
+using_environments(env)
+print(t(cbind(head(iris[[1]]), head(env$data[[1]]))))
+```
+
+```{r}
+using_nonstandard_evaluation <-
+  function(dataframe) eval.parent(substitute(dataframe[[1]] <- 2 * dataframe[[1]]))
+data <- iris
+using_nonstandard_evaluation(data)
+print(t(cbind(head(iris[[1]]), head(data[[1]]))))
+```
+
+```r
+library(microbenchmark)
+microbenchmark(using_environments(env), using_nonstandard_evaluation(data))
+## Unit: microseconds
+#                                expr   min    lq median    uq    max neval
+#             using_environments(env) 24.59 34.88  37.28 40.26 1198.4   100
+#  using_nonstandard_evaluation(data) 26.17 35.30  39.46 42.61  108.3   100
+```
+
+As we can see, the execution times are comparable, and the method we choose
+will depend on whether we would like easier use on the calling side or on the processing side.
+
+**[Previous Section](filtering_out_values.md)** | **[Index](../../README.md)** | **[Next Section](column_transformations.md)**

@@ -1,0 +1,57 @@
+**[Previous Section](row_transformations.md)** | **[Index](../../README.md)** | **[Next Section](dataframe_transformations.md)**
+  
+```{r, echo = FALSE, message = FALSE}
+set.seed(1337)
+library(mungebitsTransformations)
+```
+
+Multi column transformations
+========
+  
+  Occasionally, we may wish to transform a column by using other columns as input, or create a 
+whole new derivative column altogether. For example, consider the built-in `Orange` dataset.
+
+```{r}
+head(Orange)
+```
+
+We could wonder whether there is a pattern to the `age / circumference` ratio.
+
+```{r, tidy = FALSE}
+Orange$ratio <- with(Orange, age / circumference)
+head(Orange$ratio)
+```
+
+To continue with our functional-style tools, we will use the `multi_column_transformation` helper from
+the `mungebitsTransformations` package. This works exactly like `column_transformation`, except the
+output function will take three arguments: the input `data.frame`, a character vector of input columns,
+and the name of the output column.
+
+```{r}
+ratio_transform <- multi_column_transformation(`/`)
+ratio_transform(Orange, c('age', 'circumference'), 'ratio')
+head(Orange$ratio)
+```
+
+Note we used the trick of passing the primitive function `` `/` `` into `multi_column_transformation`. If
+you haven't seen this before and it looks confusing, mentally replace `` `/` `` with `function(x, y) x / y`.
+
+Exercises
+-------
+  
+1. Write a multi-column transformation that accepts a dataframe and a string, and concatenates two
+   character columns into one column using the string as the separator. For example, if the input
+   columns were `c("a", "b", "c")` and `c("d", "e", "f")` and the separator was `"."`, the output
+   would be `c("a.d", "b.e", "c.f")`. (Hint: Use `paste` as the input to the `multi_column_transformation`)
+   
+   Note that `multi_column_transformation` has the same behavior as `column_transformation` with additional
+   arguments:
+   
+```{r, tidy = FALSE}
+df <- data.frame(one = seq_len(10), two = seq_len(10))
+weighted_sum <- multi_column_transformation(function(x, y, weights) x + weights * y)
+weighted_sum(df, 1:2, 'three', weights = c(1, 0))
+df$three # Only the odd terms will have the second column added on.
+```
+  
+**[Previous Section](row_transformations.md)** | **[Index](../../README.md)** | **[Next Section](dataframe_transformations.md)**

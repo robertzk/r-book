@@ -1,0 +1,49 @@
+**[Previous Section](multi_column_transformations.md)** | **[Index](../../README.md)** | **[Next Section](transformations_exercises.md)**
+  
+```{r, echo = FALSE, message = FALSE}
+set.seed(1337)
+library(mungebitsTransformations)
+```
+
+Dataframe Transformation
+========
+  
+If the operation we are performing on our `data.frame` does not make column-by-column or row-by-row 
+modifications, we are dealing with a whole dataframe transformation. For example, transposing our
+`data.frame` using the built-in `t` function is such an operation.
+
+In general, whole dataframe transformations are rare and should be broken down into compositions
+of column and row transformations whenever possible. For example, "take the square root of each
+entry" is a whole dataframe transformation, but it is *also* a column transformations:
+
+```{r}
+column_transformation(sqrt)(iris, 1:4)
+t(head(cbind(datasets::iris[[1]], iris[[1]])))
+```
+
+Whenever possible, we should break down the operations we are performing on our data set
+into simpler atomic chunks so that these chunks can be re-used and tested separately. If you
+find yourself using whole data transformations, ask yourself if it can be achieved using a
+composition of row and column transformations.
+
+Exercises
+--------
+
+   1. Can re-ordering a `data.frame`'s columns (e.g., sorting columns by names) be accomplished
+      using just row and column transformations? Why or why not?
+      
+   2. The following code removes all rows and columns containing more than 20% missing values.
+      How would you break it down into row and column transformations?
+      
+```{r}
+# Generate some NAs in iris
+iris[] <- lapply(iris, function(x) ifelse(runif(150, 0, 1) > 0.7, NA, x))
+remove_missings <- function(dataframe) eval.parent(substitute({
+  dataframe <- dataframe[apply(dataframe, 1, function(x) mean(is.na(x)) <= 0.2), ]
+  dataframe <- dataframe[, apply(dataframe, 2, function(x) mean(is.na(x)) <= 0.2)]
+}))
+remove_missings(iris)
+dim(iris) # 76 4
+```
+
+**[Previous Section](multi_column_transformations.md)** | **[Index](../../README.md)** | **[Next Section](transformations_exercises.md)**

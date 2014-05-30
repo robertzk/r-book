@@ -3,7 +3,10 @@ layout: page
 ---
 
 
-**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](filtering_out_values.md)**
+
+
+
 
 Training versus prediction
 =====
@@ -28,10 +31,10 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 
 ```
 ##         one    two
-## 1   -0.2338     NA
-## 2    0.7159  6.258
-## 100  1.1945  8.711
-## 101      NA 13.800
+## 1    0.1925     NA
+## 2   -1.4467 11.050
+## 100  0.9120  5.284
+## 101      NA 24.645
 ```
 
 
@@ -44,10 +47,10 @@ print(rbind(head(example_data, 2), tail(example_data, 2)))
 
 ```
 ##         one    two
-## 1   -0.2338 10.237
-## 2    0.7159  6.258
-## 100  1.1945  8.711
-## 101 -0.0341 13.800
+## 1    0.1925 10.205
+## 2   -1.4467 11.050
+## 100  0.9120  5.284
+## 101  0.2371 24.645
 ```
 
 
@@ -56,6 +59,21 @@ only one row: imputing will make no sense. We must *remember* the mean that we
 used during training. The implication is that future data points are assumed to come
 from the same distribution as the training data points, so their expected value is
 the mean of the distribution, which is best approximated by the mean of our training sample.
+
+
+```r
+prediction_row <- data.frame(one = NA, two = rnorm(1, 10, 5))
+# Impute the missing value using the mean from example_data
+for (col in seq_along(prediction_row)) 
+  prediction_row[is.na(prediction_row[[col]]), col] <- mean(example_data[[col]], na.rm = TRUE)
+print(prediction_row)
+```
+
+```
+##      one   two
+## 1 0.2371 15.81
+```
+
 
 We have now come to our first fork in the road. We can choose two paths: we can decide that whenever we have to perform some pre-processing operations on portions of a dataset, we resolve to also write any necessary prediction function. We will use the former code for training, and the latter code for prediction, and will keep the two
 in separate places.
@@ -67,4 +85,4 @@ us to use the same code to perform either step.
 The rest of this chapter is dedicated to one example of such a convention--the **mungebits** package 
 that comes with the syberia set of packages.
 
-**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](training_versus_prediction.md)**
+**[Previous Section](index.md)** | **[Index](../../README.md)** | **[Next Section](filtering_out_values.md)**

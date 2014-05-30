@@ -1,0 +1,54 @@
+**[Previous Section](training_versus_prediction.md)** | **[Index](../../README.md)** | **[Next Section](transformations.md)**
+
+Some manual exercises
+======
+
+Before diving into the *mungebits* package and its use for data preparation, let us try to
+manually play with some operations.
+
+Filtering out values
+-------
+
+Consider the `chickwts` dataset that comes with base R:
+
+```{r, tidy = FALSE}
+attach(chickwts)
+print(rbind(head(chickwts, 2), tail(chickwts, 2)))
+print(unique(chickwts$feed))
+```
+
+Our job is to condense the information in the second column for an algorithm that does not 
+deal well with too many levels. We would like to turn to turn the `horsebean` and `soybean`
+levels into a `bean` category, the `linseed` and `sunflower` into a `seed` category,
+and the other two into `other`. We could do this manually:
+
+```{r, tidy = FALSE}
+cleanup_feed <- function(feed) {
+  factor(ifelse(feed %in% c('horsebean', 'soybean'), 'bean',
+         ifelse(feed %in% c('sunflower', 'linseed'), 'seed', 'other')))
+}
+
+clean_chickwts <- chickwts
+clean_chickwts$feed <- cleanup_feed(clean_chickwts$feed)
+print(rbind(head(clean_chickwts, 2), tail(clean_chickwts, 2)))
+print(unique(clean_chickwts$feed))
+```
+
+What happens when we try to apply our preparation function to a single row for prediction?
+
+```{r, tidy = FALSE}
+print(cleanup_feed(chickwts[1, ]$feed))
+```
+
+Although the `character` value is correct, the `levels` are no longer the same. Therefore, we cannot
+use the same function for prediction and training.
+
+The prediction function must *remember* the levels that were used during training, just like
+the prediction step for imputation had to remember the mean.
+
+This is one of the problems we face when performing data preparation on a training set
+versus single-row prediction data that is streaming in real-time. In the next section,
+we will learn how transformations, and later mungebits, help us make this process
+more manageable.
+
+**[Previous Section](training_versus_prediction.md)** | **[Index](../../README.md)** | **[Next Section](transformations.md)**
