@@ -22,11 +22,11 @@ development in the R programming language. The sections denoted by \* are option
      - [Filtering out values](docs/data_preparation/filtering_out_values.md)
   - [Transformations](docs/data_preparation/transformations.md)
      - [Column transformations](docs/data_preparation/column_transformations.md)
-     - Row transformations
-     - Multi-column transformations
-     - Dataframe transformations
-     - Exercises 
-  - Mungebits
+     - [Row transformations](docs/data_preparation/row_transformations.md)
+     - [Multi-column transformations](docs/data_preparation/multi_column_transformations.md)
+     - [Dataframe transformations](docs/data_preparation/dataframe_transformations.md)
+     - [Exercises](docs/data_preparation/transformations_exercises.md)
+  - [Mungebits](docs/data_preparation/mungebits.md)
     - A simple filter
     - A simple imputer
     - The mungebit data structure
